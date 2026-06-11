@@ -1,0 +1,45 @@
+========================================================================
+             TEMPLATE SETUP & REBRANDING INSTRUCTIONS
+========================================================================
+
+Follow the instructions below to preview your website template, deploy it, or request your complimentary professional rebranding service.
+
+------------------------------------------------------------------------
+STEP 1: PREVIEW THE WEBSITE LOCALLY
+------------------------------------------------------------------------
+You can test the website immediately on your computer:
+1. Extract all downloaded files (index.html, style.css, app.js) into the same folder.
+2. Double-click "index.html" to open it in any modern web browser (Chrome, Safari, Edge, Firefox).
+3. Try toggling the Light/Dark themes, opening the AI Assistant in the bottom right corner, playing with the Interactive Structural Engineering Simulator, and checking out the Client Project Tracker.
+
+------------------------------------------------------------------------
+STEP 2: CLAIM YOUR COMPLIMENTARY REBRANDING & MIGRATION SERVICE
+------------------------------------------------------------------------
+As part of your purchase, we provide a complete rebranding and migration service to transform this template into your official company website.
+
+To initiate the rebranding process:
+1. Contact us directly via Etsy Messages.
+2. Send us your business information, including:
+   - Your company name and logo.
+   - Your preferred colors (or we can suggest some based on your logo).
+   - Your contact details (phone, email, address, operating hours).
+   - The services you offer and text updates you'd like to make.
+   - Any specific projects/stages you want loaded into the Client Tracker.
+   - Information about typical customer queries for the AI Chatbot.
+
+3. We will collaborate with you to create a customized "Migration & Launch Plan" to transition your business info onto the website.
+4. We will modify the source code, apply your styling, test the features, and deliver your ready-to-publish files.
+5. If needed, we can also assist you in hosting the site live online under your own custom domain.
+
+------------------------------------------------------------------------
+STEP 3: SELF-HOSTING & DEPLOYMENT (OPTIONAL)
+------------------------------------------------------------------------
+If you are comfortable hosting the files yourself:
+* Free Hosting: You can host this static site completely free on GitHub Pages, Netlify, Vercel, or Cloudflare Pages.
+* Traditional Hosting: Upload the three files (index.html, style.css, app.js) directly to the root directory (public_html) of your web server using FTP (e.g., FileZilla).
+
+------------------------------------------------------------------------
+NEED HELP OR HAVE QUESTIONS?
+------------------------------------------------------------------------
+If you run into any issues or have questions about how to use the website, please send us a message on Etsy. We respond within 24 hours and are committed to helping you launch a website you love!
+------------------------------------------------------------------------
