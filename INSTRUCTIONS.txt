@@ -32,11 +32,36 @@ To initiate the rebranding process:
 5. If needed, we can also assist you in hosting the site live online under your own custom domain.
 
 ------------------------------------------------------------------------
-STEP 3: SELF-HOSTING & DEPLOYMENT (OPTIONAL)
+STEP 3: SELF-HOSTING ON GITHUB PAGES (STEP-BY-STEP GUIDE)
 ------------------------------------------------------------------------
-If you are comfortable hosting the files yourself:
-* Free Hosting: You can host this static site completely free on GitHub Pages, Netlify, Vercel, or Cloudflare Pages.
-* Traditional Hosting: Upload the three files (index.html, style.css, app.js) directly to the root directory (public_html) of your web server using FTP (e.g., FileZilla).
+If you prefer to host the website yourself, GitHub Pages offers free hosting for static websites. Here is how to set it up:
+
+1. CREATE A GITHUB ACCOUNT
+   * Go to https://github.com and sign up for a free account if you don't have one.
+
+2. CREATE A NEW REPOSITORY
+   * Once logged in, click the "+" icon in the top right and select "New repository".
+   * Repository Name: Enter a name (e.g., "my-construction-website").
+   * Public/Private: Keep it set to "Public" (required for free GitHub Pages).
+   * Leave all other settings default and click the green "Create repository" button.
+
+3. UPLOAD YOUR WEBSITE FILES
+   * On the quick setup page, click the link that says "uploading an existing file".
+   * Drag and drop all three files (index.html, style.css, app.js) into the box.
+   * Wait for the upload progress bars to complete.
+   * Scroll down and click the green "Commit changes" button.
+
+4. ENABLE GITHUB PAGES
+   * In your repository, click the "Settings" tab (the gear icon at the top).
+   * In the left-hand menu, under the "Code and automation" section, click "Pages".
+   * Under "Build and deployment" -> "Branch", change the dropdown from "None" to "main" (or your active branch).
+   * Leave the folder dropdown as "/ (root)" and click "Save".
+
+5. VISIT YOUR LIVE WEBSITE
+   * Wait 1 to 2 minutes for GitHub to build your site.
+   * Refresh the "Pages" settings page. You will see a banner at the top:
+     "Your site is live at https://<your-username>.github.io/<repository-name>/"
+   * Click that link to view your live, interactive website!
 
 ------------------------------------------------------------------------
 NEED HELP OR HAVE QUESTIONS?
