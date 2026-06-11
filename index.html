@@ -27,6 +27,7 @@
     
     <nav class="nav-links">
       <a href="#services">Services</a>
+      <a href="#simulator">Engineering Simulator</a>
       <a href="#tracker">Client Portal</a>
       <a href="https://wa.me/27681234567?text=Hi%20First%20Choice%20Construction%2C%20I'm%20interested%20in%20a%20free%20quote." class="btn-primary">Free Quote</a>
       
@@ -154,7 +155,131 @@
     </div>
   </section>
 
-  <!-- New Project Tracker Section -->
+  <!-- New Interactive Engineering Simulator Section -->
+  <section id="simulator" class="simulator-section">
+    <div class="container">
+      <div class="simulator-header">
+        <h2>Interactive <span class="text-gradient">Engineering Lab</span></h2>
+        <p>Proving the science behind safe construction. Use the sliders below to test structural loads on support beams. See how steel, concrete, and timber deflect under weight according to the <strong>Euler-Bernoulli Beam Theory</strong>.</p>
+      </div>
+      
+      <div class="simulator-grid">
+        <!-- Controls Panel -->
+        <div class="simulator-controls glass-card">
+          <h4>Load Parameters</h4>
+          
+          <div class="control-group">
+            <label for="sim-material">Select Material</label>
+            <select id="sim-material">
+              <option value="steel">Structural Steel (E=200 GPa)</option>
+              <option value="concrete">Concrete C25 (E=30 GPa)</option>
+              <option value="timber" selected>Timber / Pine (E=10 GPa)</option>
+            </select>
+          </div>
+          
+          <div class="control-group">
+            <label for="sim-support">Support Configuration</label>
+            <select id="sim-support">
+              <option value="supported" selected>Simply Supported (Both Ends)</option>
+              <option value="cantilever">Cantilever (One End Fixed)</option>
+            </select>
+          </div>
+          
+          <div class="control-group">
+            <div class="control-label-row">
+              <label for="sim-length">Beam Span (Length)</label>
+              <span id="sim-length-val" class="math-value">4.0m</span>
+            </div>
+            <input type="range" id="sim-length" min="2" max="8" step="0.5" value="4">
+          </div>
+          
+          <div class="control-group">
+            <div class="control-label-row">
+              <label for="sim-load">Applied Load (Weight)</label>
+              <span id="sim-load-val" class="math-value">1,500 kg</span>
+            </div>
+            <input type="range" id="sim-load" min="0" max="10000" step="250" value="1500">
+          </div>
+        </div>
+        
+        <!-- Live Telemetry & Graph Panel -->
+        <div class="simulator-display glass-card">
+          <div class="display-header">
+            <h4>Live Finite Element Analysis (FEA)</h4>
+            <div id="telemetry-safety">
+              <!-- Safety Status Badge -->
+            </div>
+          </div>
+          
+          <!-- SVG Bending Beam Canvas -->
+          <div class="svg-canvas-container">
+            <svg id="sim-svg" viewBox="0 0 800 200" width="100%" height="100%">
+              <!-- Grid Lines -->
+              <line x1="100" y1="50" x2="700" y2="50" stroke="var(--border-color)" stroke-dasharray="4" />
+              <line x1="100" y1="100" x2="700" y2="100" stroke="var(--border-color)" stroke-dasharray="4" />
+              <line x1="100" y1="150" x2="700" y2="150" stroke="var(--border-color)" stroke-dasharray="4" />
+              
+              <!-- Left Support -->
+              <g id="sim-support-left">
+                <polygon points="0,0 -12,20 12,20" fill="var(--accent-color)" />
+                <line x1="-18" y1="20" x2="18" y2="20" stroke="var(--text-primary)" stroke-width="3" />
+              </g>
+              
+              <!-- Right Support -->
+              <g id="sim-support-right">
+                <polygon points="0,0 -12,20 12,20" fill="var(--accent-color)" />
+                <circle cx="0" cy="22" r="3" fill="var(--accent-color)" />
+                <line x1="-18" y1="25" x2="18" y2="25" stroke="var(--text-primary)" stroke-width="3" />
+              </g>
+              
+              <!-- Bending Beam Path -->
+              <path id="sim-beam-path" d="" fill="#a8a29e" stroke="#ffffff" stroke-width="2" />
+              
+              <!-- Load Arrow -->
+              <line id="sim-load-arrow" x1="400" y1="60" x2="400" y2="95" stroke="#ff6b35" stroke-width="4" />
+              <polygon id="sim-load-arrow-head" points="394,85 400,95 406,85" fill="#ff6b35" />
+              <text id="sim-load-arrow-text" x="400" y="55" fill="#ff6b35" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">P</text>
+            </svg>
+          </div>
+          
+          <!-- Telemetry Data Grid -->
+          <div class="telemetry-grid">
+            <div class="telemetry-box">
+              <span class="telemetry-lbl">Max Deflection</span>
+              <span id="telemetry-deflection" class="telemetry-val">0.0 mm</span>
+            </div>
+            <div class="telemetry-box">
+              <span class="telemetry-lbl">Max Bending Stress</span>
+              <span id="telemetry-stress" class="telemetry-val">0.0 MPa</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Formula Panel -->
+        <div class="simulator-formulas glass-card">
+          <h4>The Physics of Deflection</h4>
+          <p>This simulator uses the <strong>Euler-Bernoulli Beam Equation</strong> to compute deflection &delta; at the point of load:</p>
+          <div class="math-card">
+            <code class="math-expr">
+              &delta; = P &middot; L<sup>3</sup> / (48 &middot; E &middot; I)
+            </code>
+          </div>
+          <p class="math-explanation">Where:</p>
+          <ul class="math-vars-list">
+            <li><strong>P (Load Force)</strong>: <span id="formula-val-p">14715</span> N</li>
+            <li><strong>L (Beam Span)</strong>: <span id="formula-val-l">4.0</span> m</li>
+            <li><strong>E (Elastic Modulus)</strong>: <span id="formula-val-e">10</span> &times; 10<sup>9</sup> Pa</li>
+            <li><strong>I (Moment of Inertia)</strong>: <span id="formula-val-i">0.0003375</span> m<sup>4</sup></li>
+          </ul>
+          <div class="math-calculation">
+            <p>Calculated Deflection: <br><strong class="highlight-val"><span id="formula-val-result">0.00</span> mm</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Tracker Section -->
   <section id="tracker" class="project-tracker-section">
     <div class="container">
       <div class="tracker-header">

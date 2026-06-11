@@ -123,13 +123,13 @@ h1, h2, h3, h4, h5, h6 {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .nav-links a { 
     color: var(--text-secondary); 
     text-decoration: none; 
-    font-size: 0.9rem; 
+    font-size: 0.85rem; 
     font-weight: 600; 
     transition: color 0.3s; 
     padding: 0.5rem 0;
@@ -142,7 +142,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary { 
     background: linear-gradient(135deg, var(--accent-color), var(--accent-2)); 
     color: #080a0c !important; 
-    padding: 0.75rem 1.5rem; 
+    padding: 0.65rem 1.25rem; 
     border-radius: 10px; 
     font-weight: 700; 
     text-decoration: none; 
@@ -167,7 +167,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     gap: 0.5rem;
     border-left: 1px solid var(--border-color);
-    padding-left: 1.5rem;
+    padding-left: 1rem;
 }
 
 .theme-switch-label {
@@ -443,6 +443,292 @@ h1 {
         transform: translateY(-4px); 
         background: var(--bg-card-hover);
     }
+}
+
+/* ==========================================================================
+   INTERACTIVE ENGINEERING SIMULATOR
+   ========================================================================== */
+.simulator-section {
+    padding: 6rem 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.simulator-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.simulator-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.simulator-header p {
+    color: var(--text-secondary);
+    max-width: 580px;
+    margin: 0 auto;
+}
+
+.simulator-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+/* Controls card */
+.simulator-controls h4, .simulator-display h4, .simulator-formulas h4 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+}
+
+.control-group {
+    margin-bottom: 1.5rem;
+}
+
+.control-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.control-group select {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.control-group select:focus {
+    border-color: var(--input-focus-border);
+}
+
+.control-group select option {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+}
+
+.control-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.35rem;
+}
+
+.math-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+/* Customized Range Slider */
+.control-group input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    background: var(--border-color);
+    border-radius: 3px;
+    outline: none;
+    transition: background 0.3s;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-2));
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--accent-glow);
+    transition: transform 0.1s;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+}
+
+/* Display Card (Canvas) */
+.simulator-display {
+    grid-column: span 1;
+}
+
+.display-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+}
+
+.display-header h4 {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.badge-status {
+    padding: 0.3rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.status-safe {
+    background: rgba(37, 211, 102, 0.12);
+    border: 1px solid #25d366;
+    color: #25d366;
+}
+
+.status-warning {
+    background: rgba(245, 166, 35, 0.12);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.status-critical {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    animation: criticalPulse 1.5s infinite;
+}
+
+@keyframes criticalPulse {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.svg-canvas-container {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    height: 220px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.svg-canvas-container svg {
+    overflow: visible;
+}
+
+.telemetry-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.telemetry-box {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.telemetry-lbl {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.35rem;
+}
+
+.telemetry-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+/* Formulas Card */
+.simulator-formulas p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.math-card {
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 1.2rem;
+}
+
+.math-expr {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.math-explanation {
+    font-weight: 700;
+    color: var(--text-primary) !important;
+    font-size: 0.78rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem !important;
+}
+
+.math-vars-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.math-vars-list li {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.35rem;
+    font-family: inherit;
+}
+
+.math-vars-list span {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.math-calculation {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.math-calculation p {
+    margin-bottom: 0;
+}
+
+.highlight-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.3rem;
+    color: var(--accent-color);
 }
 
 /* ==========================================================================
@@ -1036,6 +1322,15 @@ footer {
 /* ==========================================================================
    RESPONSIVE LAYOUT & MEDIA QUERIES
    ========================================================================== */
+@media (max-width: 1200px) {
+    .simulator-grid {
+        grid-template-columns: 1fr 1.2fr;
+    }
+    .simulator-formulas {
+        grid-column: span 2;
+    }
+}
+
 @media (max-width: 992px) {
     .hero-inner {
         grid-template-columns: 1fr;
@@ -1059,15 +1354,19 @@ footer {
         display: none; /* simple collapse for demo */
     }
     
-    .grid-3, .stats-grid { 
+    .grid-3, .stats-grid, .simulator-grid { 
         grid-template-columns: 1fr; 
+    }
+
+    .simulator-formulas {
+        grid-column: span 1;
     }
     
     .hero {
         padding-top: 8rem;
     }
 
-    .project-tracker-section, .features {
+    .project-tracker-section, .features, .simulator-section {
         padding: 4rem 0;
     }
 
